@@ -9,6 +9,6 @@ In this way, parallel development of the different parts of the application is p
 [Producer Repository](https://github.com/bloodsky/FirehoseProducer)
 [Consumer Repository (with Results)](https://github.com/bloodsky/CovidConsumerApp)
 
-> General view
+
 ![alt text](https://github.com/bloodsky/SABD-Covid19-Project/blob/master/sabd_flow.jpg)
 
