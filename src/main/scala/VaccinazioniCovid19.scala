@@ -29,18 +29,18 @@ object VaccinazioniCovid19 {
     val rddFromFileTwo = sc.textFile(file2)
 
     // Jump header
-    val RDDOne = rddFromFileOne.mapPartitionsWithIndex{(idx,iter) => if (idx == 0) iter.drop(1) else iter}
-    val RDDTwo = rddFromFileTwo.mapPartitionsWithIndex{(idx,iter) => if (idx == 0) iter.drop(1) else iter}
+    // val RDDOne = rddFromFileOne.mapPartitionsWithIndex{(idx,iter) => if (idx == 0) iter.drop(1) else iter}
+    // val RDDTwo = rddFromFileTwo.mapPartitionsWithIndex{(idx,iter) => if (idx == 0) iter.drop(1) else iter}
 
     // (areaName, #hubs)
-    val rddFileOne = RDDOne.map{line =>
+    val rddFileOne = rddFromFileOne.map{line =>
       val hub = Helper.hubCsvParser(line)
       (hub.getAreaName,1)
     }.reduceByKey(_+_)
     Helper.log.info(Helper.q1+" shuffle -> new stage created!")
 
     // ((AreaName, Mese), TotVacciniPerMese)
-    val rddFileTwo = RDDTwo
+    val rddFileTwo = rddFromFileTwo
       .map{line =>
         val daySummaryDoses = Helper.dosesCsvParser(line)
         ((daySummaryDoses.getAreaName,daySummaryDoses.getDateMonth),daySummaryDoses.getTotVaccini)
