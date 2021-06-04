@@ -6,7 +6,7 @@ Main repository for analyzing covid19 data taken from [here](https://github.com/
 The project is divided into modules and each of these has been developed in a separate repository from this one. 
 In this way, parallel development of the different parts of the application is possible (Data Ingestion, Analysis, Consume)
 
-[Producer Repository](https://github.com/bloodsky/FirehoseProducer)
+[Producer Repository](https://github.com/bloodsky/FirehoseProducer)  
 [Consumer Repository (with Results)](https://github.com/bloodsky/CovidConsumerApp)
 
 
